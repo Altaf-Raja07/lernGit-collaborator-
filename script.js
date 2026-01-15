@@ -192,6 +192,141 @@ const quizData = {
       },
     ],
   },
+  sports: {
+    title: "⚽ Sports Quiz",
+    questions: [
+      {
+        question: "How many players are on a basketball team on the court?",
+        options: ["4", "5", "6", "7"],
+        correct: 1,
+      },
+      {
+        question: "Which country won the FIFA World Cup in 2018?",
+        options: ["Brazil", "Germany", "France", "Argentina"],
+        correct: 2,
+      },
+      {
+        question: "What is the maximum score in a single frame of bowling?",
+        options: ["100", "200", "300", "400"],
+        correct: 2,
+      },
+      {
+        question: "How many Grand Slam tournaments are there in tennis?",
+        options: ["2", "3", "4", "5"],
+        correct: 2,
+      },
+      {
+        question: "What is the diameter of a basketball hoop in inches?",
+        options: ["16", "18", "20", "22"],
+        correct: 1,
+      },
+      {
+        question: "Which sport is known as 'The Beautiful Game'?",
+        options: ["Basketball", "Soccer", "Tennis", "Cricket"],
+        correct: 1,
+      },
+      {
+        question: "How many minutes is a typical NFL football quarter?",
+        options: ["10", "12", "15", "20"],
+        correct: 2,
+      },
+      {
+        question: "What is the national sport of Japan?",
+        options: ["Karate", "Judo", "Sumo Wrestling", "Kendo"],
+        correct: 2,
+      },
+      {
+        question: "How many holes are played in a standard round of golf?",
+        options: ["9", "12", "18", "24"],
+        correct: 2,
+      },
+      {
+        question: "Which athlete has won the most Olympic gold medals?",
+        options: ["Usain Bolt", "Michael Phelps", "Carl Lewis", "Mark Spitz"],
+        correct: 1,
+      },
+    ],
+  },
+  technology: {
+    title: "💻 Technology Quiz",
+    questions: [
+      {
+        question: "What does CPU stand for?",
+        options: [
+          "Central Processing Unit",
+          "Computer Personal Unit",
+          "Central Program Utility",
+          "Computer Processing Utility",
+        ],
+        correct: 0,
+      },
+      {
+        question: "Who is known as the father of computers?",
+        options: [
+          "Steve Jobs",
+          "Bill Gates",
+          "Charles Babbage",
+          "Alan Turing",
+        ],
+        correct: 2,
+      },
+      {
+        question: "What does HTML stand for?",
+        options: [
+          "Hyper Text Markup Language",
+          "High Tech Modern Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language",
+        ],
+        correct: 0,
+      },
+      {
+        question: "Which company developed the Java programming language?",
+        options: ["Microsoft", "Sun Microsystems", "Oracle", "IBM"],
+        correct: 1,
+      },
+      {
+        question: "What year was the first iPhone released?",
+        options: ["2005", "2006", "2007", "2008"],
+        correct: 2,
+      },
+      {
+        question: "What does USB stand for?",
+        options: [
+          "Universal Serial Bus",
+          "Universal System Bridge",
+          "Uniform Serial Bus",
+          "United System Bus",
+        ],
+        correct: 0,
+      },
+      {
+        question: "Which programming language is known as the language of the web?",
+        options: ["Python", "JavaScript", "C++", "Ruby"],
+        correct: 1,
+      },
+      {
+        question: "What is the most popular operating system for smartphones?",
+        options: ["iOS", "Android", "Windows", "Blackberry"],
+        correct: 1,
+      },
+      {
+        question: "How many bits are in a byte?",
+        options: ["4", "8", "16", "32"],
+        correct: 1,
+      },
+      {
+        question: "What does AI stand for?",
+        options: [
+          "Automated Intelligence",
+          "Artificial Intelligence",
+          "Advanced Integration",
+          "Automatic Interface",
+        ],
+        correct: 1,
+      },
+    ],
+  },
 };
 
 // Quiz State
