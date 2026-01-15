@@ -95,3 +95,28 @@ const statsSection = document.querySelector('.stats');
 if (statsSection) {
     statsObserver.observe(statsSection);
 }
+
+const artsQuestions = [
+    { q: "Who painted the Mona Lisa?", options: ["Van Gogh", "Leonardo da Vinci", "Picasso", "Michelangelo"], answer: 1 },
+    { q: "Origami belongs to which country?", options: ["China", "Japan", "India", "Korea"], answer: 1 },
+    { q: "Which tool is used in sculpture?", options: ["Brush", "Pen", "Chisel", "Camera"], answer: 2 },
+    { q: "Who cut off his ear?", options: ["Picasso", "Van Gogh", "Da Vinci", "Rembrandt"], answer: 1 },
+    { q: "Which art uses small dots?", options: ["Cubism", "Pointillism", "Surrealism", "Realism"], answer: 1 },
+    { q: "Graffiti is an example of?", options: ["Street art", "Oil painting", "Calligraphy", "Sculpture"], answer: 0 },
+    { q: "Abstract art focuses on?", options: ["Reality", "Emotions", "Nature", "Portraits"], answer: 1 },
+    { q: "Ukiyo-e art is from?", options: ["China", "Japan", "India", "Thailand"], answer: 1 },
+    { q: "Which color model do painters use?", options: ["RGB", "CMYK", "RYB", "HEX"], answer: 2 },
+    { q: "A mural is a?", options: ["Wall painting", "Sketch", "Portrait", "Digital art"], answer: 0 }
+];
+const musicQuestions = [
+    { q: "How many notes are there in music?", options: ["5", "6", "7", "8"], answer: 2 },
+    { q: "Which instrument has keys?", options: ["Guitar", "Piano", "Flute", "Drums"], answer: 1 },
+    { q: "Who is the King of Pop?", options: ["Elvis Presley", "Michael Jackson", "Drake", "Eminem"], answer: 1 },
+    { q: "BPM stands for?", options: ["Beats Per Minute", "Bass Per Music", "Beat Meter", "Music Speed"], answer: 0 },
+    { q: "Which is a string instrument?", options: ["Flute", "Drums", "Guitar", "Trumpet"], answer: 2 },
+    { q: "Silence in music is called?", options: ["Note", "Beat", "Rest", "Scale"], answer: 2 },
+    { q: "Hip-hop mainly uses?", options: ["Rap", "Jazz", "Opera", "Classical"], answer: 0 },
+    { q: "Who composed classical symphonies?", options: ["Beethoven", "Drake", "Adele", "Taylor Swift"], answer: 0 },
+    { q: "Flute is played using?", options: ["Air", "Keys", "Strings", "Sticks"], answer: 0 },
+    { q: "Notes played together are called?", options: ["Beat", "Chord", "Scale", "Tempo"], answer: 1 }
+];
