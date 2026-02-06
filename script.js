@@ -502,7 +502,7 @@ function startQuiz(quizType) {
 
 // Load Question
 function loadQuestion() {
-  const question = currentQuiz.questions[currentQuestion];
+  const question = currentQuiz.questions[currentQuestion]
 
   // Update progress
   const progress = ((currentQuestion + 1) / currentQuiz.questions.length) * 100;
