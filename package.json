@@ -1,0 +1,20 @@
+{
+  "name": "quizmaster",
+  "version": "1.0.0",
+  "description": "QuizMaster - Test Your Knowledge",
+  "main": "index.html",
+  "scripts": {
+    "dev": "lite-server",
+    "start": "lite-server"
+  },
+  "keywords": [
+    "quiz",
+    "education",
+    "learning"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

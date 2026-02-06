@@ -327,6 +327,121 @@ const quizData = {
       },
     ],
   },
+  arts: {
+    title: "🎨 Arts Quiz",
+    questions: [
+      {
+        question: "Who painted the Mona Lisa?",
+        options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+        correct: 1,
+      },
+      {
+        question: "What are the primary colors?",
+        options: [
+          "Red, Blue, Yellow",
+          "Red, Green, Blue",
+          "Orange, Purple, Green",
+          "Black, White, Gray",
+        ],
+        correct: 0,
+      },
+      {
+        question: "What is the art of beautiful handwriting called?",
+        options: ["Typography", "Calligraphy", "Lithography", "Photography"],
+        correct: 1,
+      },
+      {
+        question: "Which famous painting is also known as 'La Gioconda'?",
+        options: ["The Scream", "Starry Night", "Mona Lisa", "The Last Supper"],
+        correct: 2,
+      },
+      {
+        question: "Which art movement is Salvador Dali associated with?",
+        options: ["Impressionism", "Cubism", "Surrealism", "Realism"],
+        correct: 2,
+      },
+      {
+        question: "What is the term for a painting done on wet plaster?",
+        options: ["Mosaic", "Fresco", "Mural", "Collage"],
+        correct: 1,
+      },
+      {
+        question: "Who painted 'Starry Night'?",
+        options: ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Rembrandt"],
+        correct: 1,
+      },
+      {
+        question: "What is the art technique of creating images using small pieces of colored glass or stone?",
+        options: ["Mosaic", "Collage", "Decoupage", "Assemblage"],
+        correct: 0,
+      },
+      {
+        question: "Which famous sculptor created 'The Thinker'?",
+        options: ["Michelangelo", "Auguste Rodin", "Donatello", "Bernini"],
+        correct: 1,
+      },
+      {
+        question: "What is the technique of scratching through a surface to reveal a lower layer?",
+        options: ["Etching", "Sgraffito", "Impasto", "Glazing"],
+        correct: 1,
+      },
+    ],
+  },
+  music: {
+    title: "🎵 Music Quiz",
+    questions: [
+      {
+        question: "Which composer became deaf later in his life?",
+        options: ["Mozart", "Bach", "Beethoven", "Vivaldi"],
+        correct: 2,
+      },
+      {
+        question: "How many strings does a standard guitar have?",
+        options: ["4", "5", "6", "7"],
+        correct: 2,
+      },
+      {
+        question: "What is the highest female singing voice?",
+        options: ["Alto", "Soprano", "Mezzo-soprano", "Contralto"],
+        correct: 1,
+      },
+      {
+        question: "Who is known as the 'King of Pop'?",
+        options: ["Elvis Presley", "Prince", "Michael Jackson", "Madonna"],
+        correct: 2,
+      },
+      {
+        question: "How many keys does a standard piano have?",
+        options: ["76", "88", "96", "100"],
+        correct: 1,
+      },
+      {
+        question: "What does 'forte' mean in music?",
+        options: ["Soft", "Loud", "Fast", "Slow"],
+        correct: 1,
+      },
+      {
+        question: "Which instrument has 47 strings and 7 pedals?",
+        options: ["Piano", "Harp", "Organ", "Harpsichord"],
+        correct: 1,
+      },
+      {
+        question: "What is the term for a group of four musicians?",
+        options: ["Trio", "Quartet", "Quintet", "Ensemble"],
+        correct: 1,
+      },
+      {
+        question: "Which Beatles member was known as 'The Quiet Beatle'?",
+        options: ["John Lennon", "Paul McCartney", "George Harrison", "Ringo Starr"],
+        correct: 2,
+      },
+      {
+        question: "What genre of music originated in New Orleans in the early 20th century?",
+        options: ["Blues", "Jazz", "Rock", "Country"],
+        correct: 1,
+      },
+    ],
+  },
 };
 
 // Quiz State
