@@ -30,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all feature cards and category cards
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll(
-    ".feature-card, .category-card, .step"
+    ".feature-card, .category-card, .step",
   );
 
   animatedElements.forEach((el) => {
@@ -192,6 +192,396 @@ const quizData = {
       },
     ],
   },
+
+  history: {
+    title: "📖 History Quiz",
+    questions: [
+      {
+        question: "In which year did World War II end?",
+        options: ["1943", "1944", "1945", "1946"],
+        correct: 2,
+      },
+      {
+        question: "Who was the first President of the United States?",
+        options: [
+          "Thomas Jefferson",
+          "George Washington",
+          "John Adams",
+          "Benjamin Franklin",
+        ],
+        correct: 1,
+      },
+      {
+        question: "The ancient city of Rome was built on how many hills?",
+        options: ["Five", "Six", "Seven", "Eight"],
+        correct: 2,
+      },
+      {
+        question: "Which civilization built Machu Picchu?",
+        options: ["Aztecs", "Mayans", "Incas", "Olmecs"],
+        correct: 2,
+      },
+      {
+        question: "What year did the Berlin Wall fall?",
+        options: ["1987", "1988", "1989", "1990"],
+        correct: 2,
+      },
+      {
+        question:
+          "Who was the Egyptian queen who had relationships with Julius Caesar and Mark Antony?",
+        options: ["Nefertiti", "Cleopatra", "Hatshepsut", "Nefertari"],
+        correct: 1,
+      },
+      {
+        question: "In which year did Christopher Columbus reach the Americas?",
+        options: ["1490", "1492", "1494", "1496"],
+        correct: 1,
+      },
+      {
+        question: "The Magna Carta was signed in which year?",
+        options: ["1215", "1315", "1415", "1515"],
+        correct: 0,
+      },
+      {
+        question: "Which empire was ruled by Genghis Khan?",
+        options: [
+          "Ottoman Empire",
+          "Roman Empire",
+          "Mongol Empire",
+          "Byzantine Empire",
+        ],
+        correct: 2,
+      },
+      {
+        question: "The French Revolution began in which year?",
+        options: ["1776", "1789", "1799", "1804"],
+        correct: 1,
+      },
+    ],
+  },
+  entertainment: {
+    title: "🎬 Entertainment Quiz",
+    questions: [
+      {
+        question: "Which movie won the Academy Award for Best Picture in 1994?",
+        options: [
+          "Pulp Fiction",
+          "The Shawshank Redemption",
+          "Forrest Gump",
+          "The Lion King",
+        ],
+        correct: 2,
+      },
+      {
+        question: "Who played Iron Man in the Marvel Cinematic Universe?",
+        options: [
+          "Chris Evans",
+          "Chris Hemsworth",
+          "Robert Downey Jr.",
+          "Mark Ruffalo",
+        ],
+        correct: 2,
+      },
+      {
+        question: "Which TV series features the character Walter White?",
+        options: ["The Sopranos", "Breaking Bad", "Better Call Saul", "Ozark"],
+        correct: 1,
+      },
+      {
+        question: "What is the name of the kingdom in the movie 'Frozen'?",
+        options: ["Arendelle", "Corona", "DunBroch", "Agrabah"],
+        correct: 0,
+      },
+      {
+        question: "Which artist released the album 'Thriller' in 1982?",
+        options: ["Prince", "Madonna", "Michael Jackson", "Whitney Houston"],
+        correct: 2,
+      },
+      {
+        question:
+          "In the Harry Potter series, what is the name of Harry's owl?",
+        options: ["Hedwig", "Errol", "Pigwidgeon", "Fawkes"],
+        correct: 0,
+      },
+      {
+        question: "Which streaming platform produced 'Stranger Things'?",
+        options: ["Amazon Prime", "Hulu", "Disney+", "Netflix"],
+        correct: 3,
+      },
+      {
+        question: "Who directed the movie 'Inception'?",
+        options: [
+          "Steven Spielberg",
+          "Christopher Nolan",
+          "James Cameron",
+          "Quentin Tarantino",
+        ],
+        correct: 1,
+      },
+      {
+        question: "Which band sang 'Bohemian Rhapsody'?",
+        options: ["The Beatles", "Led Zeppelin", "Queen", "Pink Floyd"],
+        correct: 2,
+      },
+      {
+        question:
+          "What is the highest-grossing film of all time (not adjusted for inflation)?",
+        options: [
+          "Titanic",
+          "Avatar",
+          "Avengers: Endgame",
+          "Star Wars: The Force Awakens",
+        ],
+        correct: 1,
+      },
+    ],
+  },
+  sports: {
+    title: "⚽ Sports Quiz",
+    questions: [
+      {
+        question: "How many players are on a basketball team on the court?",
+        options: ["4", "5", "6", "7"],
+        correct: 1,
+      },
+      {
+        question: "Which country won the FIFA World Cup in 2018?",
+        options: ["Brazil", "Germany", "France", "Argentina"],
+        correct: 2,
+      },
+      {
+        question: "What is the maximum score in a single frame of bowling?",
+        options: ["100", "200", "300", "400"],
+        correct: 2,
+      },
+      {
+        question: "How many Grand Slam tournaments are there in tennis?",
+        options: ["2", "3", "4", "5"],
+        correct: 2,
+      },
+      {
+        question: "What is the diameter of a basketball hoop in inches?",
+        options: ["16", "18", "20", "22"],
+        correct: 1,
+      },
+      {
+        question: "Which sport is known as 'The Beautiful Game'?",
+        options: ["Basketball", "Soccer", "Tennis", "Cricket"],
+        correct: 1,
+      },
+      {
+        question: "How many minutes is a typical NFL football quarter?",
+        options: ["10", "12", "15", "20"],
+        correct: 2,
+      },
+      {
+        question: "What is the national sport of Japan?",
+        options: ["Karate", "Judo", "Sumo Wrestling", "Kendo"],
+        correct: 2,
+      },
+      {
+        question: "How many holes are played in a standard round of golf?",
+        options: ["9", "12", "18", "24"],
+        correct: 2,
+      },
+      {
+        question: "Which athlete has won the most Olympic gold medals?",
+        options: ["Usain Bolt", "Michael Phelps", "Carl Lewis", "Mark Spitz"],
+        correct: 1,
+      },
+    ],
+  },
+  technology: {
+    title: "💻 Technology Quiz",
+    questions: [
+      {
+        question: "What does CPU stand for?",
+        options: [
+          "Central Processing Unit",
+          "Computer Personal Unit",
+          "Central Program Utility",
+          "Computer Processing Utility",
+        ],
+        correct: 0,
+      },
+      {
+        question: "Who is known as the father of computers?",
+        options: ["Steve Jobs", "Bill Gates", "Charles Babbage", "Alan Turing"],
+        correct: 2,
+      },
+      {
+        question: "What does HTML stand for?",
+        options: [
+          "Hyper Text Markup Language",
+          "High Tech Modern Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language",
+        ],
+        correct: 0,
+      },
+      {
+        question: "Which company developed the Java programming language?",
+        options: ["Microsoft", "Sun Microsystems", "Oracle", "IBM"],
+        correct: 1,
+      },
+      {
+        question: "What year was the first iPhone released?",
+        options: ["2005", "2006", "2007", "2008"],
+        correct: 2,
+      },
+      {
+        question: "What does USB stand for?",
+        options: [
+          "Universal Serial Bus",
+          "Universal System Bridge",
+          "Uniform Serial Bus",
+          "United System Bus",
+        ],
+        correct: 0,
+      },
+      {
+        question:
+          "Which programming language is known as the language of the web?",
+        options: ["Python", "JavaScript", "C++", "Ruby"],
+        correct: 1,
+      },
+      {
+        question: "What is the most popular operating system for smartphones?",
+        options: ["iOS", "Android", "Windows", "Blackberry"],
+        correct: 1,
+      },
+      {
+        question: "How many bits are in a byte?",
+        options: ["4", "8", "16", "32"],
+        correct: 1,
+      },
+      {
+        question: "What does AI stand for?",
+        options: [
+          "Automated Intelligence",
+          "Artificial Intelligence",
+          "Advanced Integration",
+          "Automatic Interface",
+        ],
+        correct: 1,
+      },
+    ],
+  },
+  arts: {
+    title: "🎨 Arts Quiz",
+    questions: [
+      {
+        question: "Who painted the Mona Lisa?",
+        options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+        correct: 1,
+      },
+      {
+        question: "What are the primary colors?",
+        options: [
+          "Red, Blue, Yellow",
+          "Red, Green, Blue",
+          "Orange, Purple, Green",
+          "Black, White, Gray",
+        ],
+        correct: 0,
+      },
+      {
+        question: "What is the art of beautiful handwriting called?",
+        options: ["Typography", "Calligraphy", "Lithography", "Photography"],
+        correct: 1,
+      },
+      {
+        question: "Which famous painting is also known as 'La Gioconda'?",
+        options: ["The Scream", "Starry Night", "Mona Lisa", "The Last Supper"],
+        correct: 2,
+      },
+      {
+        question: "Which art movement is Salvador Dali associated with?",
+        options: ["Impressionism", "Cubism", "Surrealism", "Realism"],
+        correct: 2,
+      },
+      {
+        question: "What is the term for a painting done on wet plaster?",
+        options: ["Mosaic", "Fresco", "Mural", "Collage"],
+        correct: 1,
+      },
+      {
+        question: "Who painted 'Starry Night'?",
+        options: ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Rembrandt"],
+        correct: 1,
+      },
+      {
+        question: "What is the art technique of creating images using small pieces of colored glass or stone?",
+        options: ["Mosaic", "Collage", "Decoupage", "Assemblage"],
+        correct: 0,
+      },
+      {
+        question: "Which famous sculptor created 'The Thinker'?",
+        options: ["Michelangelo", "Auguste Rodin", "Donatello", "Bernini"],
+        correct: 1,
+      },
+      {
+        question: "What is the technique of scratching through a surface to reveal a lower layer?",
+        options: ["Etching", "Sgraffito", "Impasto", "Glazing"],
+        correct: 1,
+      },
+    ],
+  },
+  music: {
+    title: "🎵 Music Quiz",
+    questions: [
+      {
+        question: "Which composer became deaf later in his life?",
+        options: ["Mozart", "Bach", "Beethoven", "Vivaldi"],
+        correct: 2,
+      },
+      {
+        question: "How many strings does a standard guitar have?",
+        options: ["4", "5", "6", "7"],
+        correct: 2,
+      },
+      {
+        question: "What is the highest female singing voice?",
+        options: ["Alto", "Soprano", "Mezzo-soprano", "Contralto"],
+        correct: 1,
+      },
+      {
+        question: "Who is known as the 'King of Pop'?",
+        options: ["Elvis Presley", "Prince", "Michael Jackson", "Madonna"],
+        correct: 2,
+      },
+      {
+        question: "How many keys does a standard piano have?",
+        options: ["76", "88", "96", "100"],
+        correct: 1,
+      },
+      {
+        question: "What does 'forte' mean in music?",
+        options: ["Soft", "Loud", "Fast", "Slow"],
+        correct: 1,
+      },
+      {
+        question: "Which instrument has 47 strings and 7 pedals?",
+        options: ["Piano", "Harp", "Organ", "Harpsichord"],
+        correct: 1,
+      },
+      {
+        question: "What is the term for a group of four musicians?",
+        options: ["Trio", "Quartet", "Quintet", "Ensemble"],
+        correct: 1,
+      },
+      {
+        question: "Which Beatles member was known as 'The Quiet Beatle'?",
+        options: ["John Lennon", "Paul McCartney", "George Harrison", "Ringo Starr"],
+        correct: 2,
+      },
+      {
+        question: "What genre of music originated in New Orleans in the early 20th century?",
+        options: ["Blues", "Jazz", "Rock", "Country"],
+        correct: 1,
+      },
+    ],
+  },
 };
 
 // Quiz State
@@ -303,8 +693,8 @@ function showResults() {
   document.getElementById("score-text").innerHTML = `
         <h3>${message}</h3>
         <p class="score-number">You scored <strong>${score}</strong> out of <strong>${
-    currentQuiz.questions.length
-  }</strong></p>
+          currentQuiz.questions.length
+        }</strong></p>
         <p class="percentage">${percentage.toFixed(0)}%</p>
     `;
 }
@@ -362,17 +752,17 @@ const statsObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
         entry.target.classList.add("counted");
-        const statNumbers = entry.target.querySelectorAll(".stat-item h3");
+        const statNumbers = entry.target.querySelectorAll(".stat-number");
 
         statNumbers.forEach((stat) => {
-          const targetValue = parseInt(stat.textContent.replace(/,|\+/g, ""));
+          const targetValue = parseInt(stat.getAttribute("data-target"));
           stat.textContent = "0+";
           animateCounter(stat, targetValue);
         });
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.5 },
 );
 
 const statsSection = document.querySelector(".stats");
