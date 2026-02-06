@@ -192,7 +192,7 @@ const quizData = {
       },
     ],
   },
-<<<<<<< HEAD
+
   history: {
     title: "📖 History Quiz",
     questions: [
