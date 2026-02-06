@@ -87,24 +87,63 @@ body {
   color: #fff;
   padding: 6rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  animation: fadeInUp 0.6s ease;
+}
+
+.hero-badge.pulse {
+  animation: fadeInUp 0.6s ease, pulse 2s ease-in-out infinite;
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
   animation: fadeInUp 0.8s ease;
+  line-height: 1.2;
+}
+
+.title-main {
+  display: block;
+  font-weight: 700;
+}
+
+.title-secondary {
+  display: block;
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #fff, #e0e7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
   opacity: 0.95;
   animation: fadeInUp 0.8s ease 0.2s backwards;
+  line-height: 1.8;
 }
 
 .hero-buttons {
@@ -150,16 +189,65 @@ body {
   font-size: 1.1rem;
 }
 
+/* Hero Features */
+.hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.5s backwards;
+}
+
+.feature-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.feature-tag:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.tag-icon {
+  font-size: 1.1rem;
+}
+
 /* Stats */
 .stats {
   display: flex;
   justify-content: center;
   gap: 4rem;
-  animation: fadeInUp 0.8s ease 0.6s backwards;
+  animation: fadeInUp 0.8s ease 0.7s backwards;
+  margin-top: 3rem;
 }
 
-.stat-item h3 {
+.stat-item {
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.stat-number {
   font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
@@ -394,6 +482,56 @@ footer {
     transform: translateY(0);
   }
 }
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Floating Shapes */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.15;
+}
+
+.floating-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  font-size: 3rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 { top: 10%; left: 10%; animation-delay: 0s; }
+.shape-2 { top: 20%; right: 15%; animation-delay: 1s; }
+.shape-3 { top: 60%; left: 15%; animation-delay: 2s; }
+.shape-4 { bottom: 20%; right: 20%; animation-delay: 3s; }
+.shape-5 { bottom: 10%; left: 20%; animation-delay: 4s; }
+.shape-6 { top: 40%; right: 25%; animation-delay: 1.5s; font-size: 2.5rem; }
+.shape-7 { top: 70%; left: 25%; animation-delay: 2.5s; font-size: 2.5rem; }
+.shape-8 { top: 30%; left: 30%; animation-delay: 3.5s; font-size: 2.5rem; }
 
 /* Responsive Design */
 @media (max-width: 768px) {
