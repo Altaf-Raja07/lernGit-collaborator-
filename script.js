@@ -30,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all feature cards and category cards
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll(
-    ".feature-card, .category-card, .step"
+    ".feature-card, .category-card, .step",
   );
 
   animatedElements.forEach((el) => {
@@ -298,7 +298,8 @@ const quizData = {
         correct: 2,
       },
       {
-        question: "In the Harry Potter series, what is the name of Harry's owl?",
+        question:
+          "In the Harry Potter series, what is the name of Harry's owl?",
         options: ["Hedwig", "Errol", "Pigwidgeon", "Fawkes"],
         correct: 0,
       },
@@ -405,12 +406,7 @@ const quizData = {
       },
       {
         question: "Who is known as the father of computers?",
-        options: [
-          "Steve Jobs",
-          "Bill Gates",
-          "Charles Babbage",
-          "Alan Turing",
-        ],
+        options: ["Steve Jobs", "Bill Gates", "Charles Babbage", "Alan Turing"],
         correct: 2,
       },
       {
@@ -444,7 +440,8 @@ const quizData = {
         correct: 0,
       },
       {
-        question: "Which programming language is known as the language of the web?",
+        question:
+          "Which programming language is known as the language of the web?",
         options: ["Python", "JavaScript", "C++", "Ruby"],
         correct: 1,
       },
@@ -502,7 +499,7 @@ function startQuiz(quizType) {
 
 // Load Question
 function loadQuestion() {
-  const question = currentQuiz.questions[currentQuestion]
+  const question = currentQuiz.questions[currentQuestion];
 
   // Update progress
   const progress = ((currentQuestion + 1) / currentQuiz.questions.length) * 100;
@@ -581,8 +578,8 @@ function showResults() {
   document.getElementById("score-text").innerHTML = `
         <h3>${message}</h3>
         <p class="score-number">You scored <strong>${score}</strong> out of <strong>${
-    currentQuiz.questions.length
-  }</strong></p>
+          currentQuiz.questions.length
+        }</strong></p>
         <p class="percentage">${percentage.toFixed(0)}%</p>
     `;
 }
@@ -640,17 +637,17 @@ const statsObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
         entry.target.classList.add("counted");
-        const statNumbers = entry.target.querySelectorAll(".stat-item h3");
+        const statNumbers = entry.target.querySelectorAll(".stat-number");
 
         statNumbers.forEach((stat) => {
-          const targetValue = parseInt(stat.textContent.replace(/,|\+/g, ""));
+          const targetValue = parseInt(stat.getAttribute("data-target"));
           stat.textContent = "0+";
           animateCounter(stat, targetValue);
         });
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.5 },
 );
 
 const statsSection = document.querySelector(".stats");
