@@ -30,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all feature cards and category cards
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll(
-    ".feature-card, .category-card, .step"
+    ".feature-card, .category-card, .step",
   );
 
   animatedElements.forEach((el) => {
@@ -192,6 +192,150 @@ const quizData = {
       },
     ],
   },
+
+  history: {
+    title: "📖 History Quiz",
+    questions: [
+      {
+        question: "In which year did World War II end?",
+        options: ["1943", "1944", "1945", "1946"],
+        correct: 2,
+      },
+      {
+        question: "Who was the first President of the United States?",
+        options: [
+          "Thomas Jefferson",
+          "George Washington",
+          "John Adams",
+          "Benjamin Franklin",
+        ],
+        correct: 1,
+      },
+      {
+        question: "The ancient city of Rome was built on how many hills?",
+        options: ["Five", "Six", "Seven", "Eight"],
+        correct: 2,
+      },
+      {
+        question: "Which civilization built Machu Picchu?",
+        options: ["Aztecs", "Mayans", "Incas", "Olmecs"],
+        correct: 2,
+      },
+      {
+        question: "What year did the Berlin Wall fall?",
+        options: ["1987", "1988", "1989", "1990"],
+        correct: 2,
+      },
+      {
+        question:
+          "Who was the Egyptian queen who had relationships with Julius Caesar and Mark Antony?",
+        options: ["Nefertiti", "Cleopatra", "Hatshepsut", "Nefertari"],
+        correct: 1,
+      },
+      {
+        question: "In which year did Christopher Columbus reach the Americas?",
+        options: ["1490", "1492", "1494", "1496"],
+        correct: 1,
+      },
+      {
+        question: "The Magna Carta was signed in which year?",
+        options: ["1215", "1315", "1415", "1515"],
+        correct: 0,
+      },
+      {
+        question: "Which empire was ruled by Genghis Khan?",
+        options: [
+          "Ottoman Empire",
+          "Roman Empire",
+          "Mongol Empire",
+          "Byzantine Empire",
+        ],
+        correct: 2,
+      },
+      {
+        question: "The French Revolution began in which year?",
+        options: ["1776", "1789", "1799", "1804"],
+        correct: 1,
+      },
+    ],
+  },
+  entertainment: {
+    title: "🎬 Entertainment Quiz",
+    questions: [
+      {
+        question: "Which movie won the Academy Award for Best Picture in 1994?",
+        options: [
+          "Pulp Fiction",
+          "The Shawshank Redemption",
+          "Forrest Gump",
+          "The Lion King",
+        ],
+        correct: 2,
+      },
+      {
+        question: "Who played Iron Man in the Marvel Cinematic Universe?",
+        options: [
+          "Chris Evans",
+          "Chris Hemsworth",
+          "Robert Downey Jr.",
+          "Mark Ruffalo",
+        ],
+        correct: 2,
+      },
+      {
+        question: "Which TV series features the character Walter White?",
+        options: ["The Sopranos", "Breaking Bad", "Better Call Saul", "Ozark"],
+        correct: 1,
+      },
+      {
+        question: "What is the name of the kingdom in the movie 'Frozen'?",
+        options: ["Arendelle", "Corona", "DunBroch", "Agrabah"],
+        correct: 0,
+      },
+      {
+        question: "Which artist released the album 'Thriller' in 1982?",
+        options: ["Prince", "Madonna", "Michael Jackson", "Whitney Houston"],
+        correct: 2,
+      },
+      {
+        question:
+          "In the Harry Potter series, what is the name of Harry's owl?",
+        options: ["Hedwig", "Errol", "Pigwidgeon", "Fawkes"],
+        correct: 0,
+      },
+      {
+        question: "Which streaming platform produced 'Stranger Things'?",
+        options: ["Amazon Prime", "Hulu", "Disney+", "Netflix"],
+        correct: 3,
+      },
+      {
+        question: "Who directed the movie 'Inception'?",
+        options: [
+          "Steven Spielberg",
+          "Christopher Nolan",
+          "James Cameron",
+          "Quentin Tarantino",
+        ],
+        correct: 1,
+      },
+      {
+        question: "Which band sang 'Bohemian Rhapsody'?",
+        options: ["The Beatles", "Led Zeppelin", "Queen", "Pink Floyd"],
+        correct: 2,
+      },
+      {
+        question:
+          "What is the highest-grossing film of all time (not adjusted for inflation)?",
+        options: [
+          "Titanic",
+          "Avatar",
+          "Avengers: Endgame",
+          "Star Wars: The Force Awakens",
+        ],
+        correct: 1,
+      },
+    ],
+  },
   sports: {
     title: "⚽ Sports Quiz",
     questions: [
@@ -262,12 +406,7 @@ const quizData = {
       },
       {
         question: "Who is known as the father of computers?",
-        options: [
-          "Steve Jobs",
-          "Bill Gates",
-          "Charles Babbage",
-          "Alan Turing",
-        ],
+        options: ["Steve Jobs", "Bill Gates", "Charles Babbage", "Alan Turing"],
         correct: 2,
       },
       {
@@ -301,7 +440,8 @@ const quizData = {
         correct: 0,
       },
       {
-        question: "Which programming language is known as the language of the web?",
+        question:
+          "Which programming language is known as the language of the web?",
         options: ["Python", "JavaScript", "C++", "Ruby"],
         correct: 1,
       },
@@ -474,7 +614,7 @@ function startQuiz(quizType) {
 
 // Load Question
 function loadQuestion() {
-  const question = currentQuiz.questions[currentQuestion]
+  const question = currentQuiz.questions[currentQuestion];
 
   // Update progress
   const progress = ((currentQuestion + 1) / currentQuiz.questions.length) * 100;
@@ -553,8 +693,8 @@ function showResults() {
   document.getElementById("score-text").innerHTML = `
         <h3>${message}</h3>
         <p class="score-number">You scored <strong>${score}</strong> out of <strong>${
-    currentQuiz.questions.length
-  }</strong></p>
+          currentQuiz.questions.length
+        }</strong></p>
         <p class="percentage">${percentage.toFixed(0)}%</p>
     `;
 }
@@ -612,17 +752,17 @@ const statsObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
         entry.target.classList.add("counted");
-        const statNumbers = entry.target.querySelectorAll(".stat-item h3");
+        const statNumbers = entry.target.querySelectorAll(".stat-number");
 
         statNumbers.forEach((stat) => {
-          const targetValue = parseInt(stat.textContent.replace(/,|\+/g, ""));
+          const targetValue = parseInt(stat.getAttribute("data-target"));
           stat.textContent = "0+";
           animateCounter(stat, targetValue);
         });
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.5 },
 );
 
 const statsSection = document.querySelector(".stats");

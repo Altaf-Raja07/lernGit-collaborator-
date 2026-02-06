@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,10 +26,23 @@
     <main>
       <!-- Hero Section -->
       <section class="hero">
+        <div class="hero-background">
+          <div class="floating-shapes">
+            <div class="shape shape-1">🎯</div>
+            <div class="shape shape-2">🧠</div>
+            <div class="shape shape-3">⭐</div>
+            <div class="shape shape-4">🎓</div>
+            <div class="shape shape-5">🏆</div>
+          </div>
+        </div>
         <div class="container">
           <div class="hero-content">
+            <div class="hero-badge">
+              <span>✨ New Interactive Learning Experience</span>
+            </div>
             <h2 class="hero-title">
-              Challenge Your Mind, Expand Your Knowledge
+              <span class="title-main">Challenge Your Mind,</span>
+              <span class="title-secondary">Expand Your Knowledge</span>
             </h2>
             <p class="hero-subtitle">
               Join thousands of learners testing their knowledge across multiple
@@ -37,20 +50,26 @@
               a quiz champion!
             </p>
             <div class="hero-buttons">
-              <a href="#" class="btn btn-primary">Start Quiz Now</a>
-              <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+              <a href="#" class="btn btn-primary btn-glow">
+                <span class="btn-text">Start Quiz Now</span>
+                <span class="btn-icon">🚀</span>
+              </a>
+              <a href="#how-it-works" class="btn btn-secondary btn-outline">
+                <span class="btn-text">Learn More</span>
+                <span class="btn-icon">📖</span>
+              </a>
             </div>
             <div class="stats">
               <div class="stat-item">
-                <h3>10,000+</h3>
+                <div class="stat-number" data-target="10000">0</div>
                 <p>Active Users</p>
               </div>
               <div class="stat-item">
-                <h3>500+</h3>
+                <div class="stat-number" data-target="500">0</div>
                 <p>Quizzes Available</p>
               </div>
               <div class="stat-item">
-                <h3>15+</h3>
+                <div class="stat-number" data-target="15">0</div>
                 <p>Categories</p>
               </div>
             </div>
@@ -169,11 +188,11 @@
               <div class="category-icon">🌍</div>
               <h3>Geography</h3>
             </div>
-            <div class="category-card">
+            <div class="category-card" data-quiz="history">
               <div class="category-icon">📖</div>
               <h3>History</h3>
             </div>
-            <div class="category-card">
+            <div class="category-card" data-quiz="entertainment">
               <div class="category-icon">🎬</div>
               <h3>Entertainment</h3>
             </div>
