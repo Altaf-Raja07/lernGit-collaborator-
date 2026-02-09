@@ -557,11 +557,10 @@ const statsObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
         entry.target.classList.add("counted");
-        const statNumbers = entry.target.querySelectorAll(".stat-item h3");
+        const statNumbers = entry.target.querySelectorAll(".stat-number");
 
         statNumbers.forEach((stat) => {
-          const targetValue = parseInt(stat.textContent.replace(/,|\+/g, ""));
-          stat.textContent = "0+";
+          const targetValue = parseInt(stat.getAttribute("data-target"));
           animateCounter(stat, targetValue);
         });
       }
