@@ -30,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all feature cards and category cards
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll(
-    ".feature-card, .category-card, .step"
+    ".feature-card, .category-card, .step",
   );
 
   animatedElements.forEach((el) => {
@@ -39,7 +39,88 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
     observer.observe(el);
   });
+
+  // Add interactive floating shapes
+  const shapes = document.querySelectorAll(".shape");
+  shapes.forEach((shape) => {
+    shape.addEventListener("click", () => {
+      // Add click animation
+      shape.style.animation = "bounce 0.6s ease";
+      setTimeout(() => {
+        shape.style.animation = "float 6s ease-in-out infinite";
+      }, 600);
+
+      // Show a fun message
+      showFloatingMessage(shape.textContent);
+    });
+  });
+
+  // Start typing animation for hero title
+  startTypingAnimation();
 });
+
+// Show Floating Message
+function showFloatingMessage(emoji) {
+  const messages = {
+    "🎯": "Bullseye! Ready to test your knowledge?",
+    "🧠": "Brain power activated! Let's learn something new!",
+    "⭐": "You're a star! Keep shining bright!",
+    "🎓": "Knowledge is power! Let's get educated!",
+    "🏆": "Champion mindset! You're going to ace this!",
+    "💡": "Great idea! Light up your mind with knowledge!",
+    "🎨": "Creativity unleashed! Art and learning go hand in hand!",
+    "🎵": "Music to your ears! Let's make learning fun!",
+  };
+
+  const message = messages[emoji] || "Keep exploring!";
+
+  // Create floating message
+  const floatingMsg = document.createElement("div");
+  floatingMsg.className = "floating-message";
+  floatingMsg.textContent = message;
+  document.body.appendChild(floatingMsg);
+
+  // Position near the emoji
+  const rect = event.target.getBoundingClientRect();
+  floatingMsg.style.left = rect.left + "px";
+  floatingMsg.style.top = rect.top - 50 + "px";
+
+  // Remove after animation
+  setTimeout(() => {
+    if (floatingMsg.parentNode) {
+      document.body.removeChild(floatingMsg);
+    }
+  }, 3000);
+}
+
+// Start Typing Animation
+function startTypingAnimation() {
+  const titleElement = document.querySelector(".title-secondary");
+  if (!titleElement) return;
+
+  const fullText = titleElement.textContent;
+  titleElement.textContent = "";
+  titleElement.style.borderRight = "2px solid #fff";
+
+  let index = 0;
+  const typeSpeed = 100; // milliseconds per character
+
+  const typeWriter = () => {
+    if (index < fullText.length) {
+      titleElement.textContent += fullText.charAt(index);
+      index++;
+      setTimeout(typeWriter, typeSpeed);
+    } else {
+      // Remove cursor after typing is complete
+      setTimeout(() => {
+        titleElement.style.borderRight = "none";
+      }, 500);
+    }
+  };
+
+  // Start typing after a delay
+  setTimeout(typeWriter, 1000);
+}
 
 // Add hover effect for category cards
 document.querySelectorAll(".category-card").forEach((card) => {
@@ -262,12 +343,7 @@ const quizData = {
       },
       {
         question: "Who is known as the father of computers?",
-        options: [
-          "Steve Jobs",
-          "Bill Gates",
-          "Charles Babbage",
-          "Alan Turing",
-        ],
+        options: ["Steve Jobs", "Bill Gates", "Charles Babbage", "Alan Turing"],
         correct: 2,
       },
       {
@@ -301,7 +377,8 @@ const quizData = {
         correct: 0,
       },
       {
-        question: "Which programming language is known as the language of the web?",
+        question:
+          "Which programming language is known as the language of the web?",
         options: ["Python", "JavaScript", "C++", "Ruby"],
         correct: 1,
       },
@@ -332,7 +409,12 @@ const quizData = {
     questions: [
       {
         question: "Who painted the Mona Lisa?",
-        options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+        options: [
+          "Vincent van Gogh",
+          "Leonardo da Vinci",
+          "Pablo Picasso",
+          "Michelangelo",
+        ],
         correct: 1,
       },
       {
@@ -394,6 +476,8 @@ let currentQuiz = null;
 let currentQuestion = 0;
 let score = 0;
 let userAnswers = [];
+let questionTimer = null;
+let timeLeft = 30; // 30 seconds per question
 
 // Start Quiz
 function startQuiz(quizType) {
@@ -419,7 +503,28 @@ function startQuiz(quizType) {
 
 // Load Question
 function loadQuestion() {
-  const question = currentQuiz.questions[currentQuestion]
+  // Clear any existing timer
+  if (questionTimer) {
+    clearInterval(questionTimer);
+  }
+
+  // Reset timer
+  timeLeft = 30;
+  updateTimerDisplay();
+
+  // Start countdown
+  questionTimer = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+
+    if (timeLeft <= 0) {
+      // Time's up - auto-select wrong answer
+      clearInterval(questionTimer);
+      selectAnswer(-1); // -1 indicates timeout
+    }
+  }, 1000);
+
+  const question = currentQuiz.questions[currentQuestion];
 
   // Update progress
   const progress = ((currentQuestion + 1) / currentQuiz.questions.length) * 100;
@@ -438,16 +543,56 @@ function loadQuestion() {
   question.options.forEach((option, index) => {
     const button = document.createElement("button");
     button.className = "option-btn";
-    button.textContent = option;
+    button.textContent = `${index + 1}. ${option}`;
     button.addEventListener("click", () => selectAnswer(index));
     optionsContainer.appendChild(button);
   });
+
+  // Add keyboard navigation
+  document.addEventListener("keydown", handleKeyPress);
+}
+
+// Handle Keyboard Navigation
+function handleKeyPress(event) {
+  const key = event.key;
+  const optionButtons = document.querySelectorAll(".option-btn:not(:disabled)");
+
+  if (key >= "1" && key <= optionButtons.length.toString()) {
+    const index = parseInt(key) - 1;
+    if (optionButtons[index]) {
+      optionButtons[index].click();
+    }
+  }
+}
+
+// Update Timer Display
+function updateTimerDisplay() {
+  const timerDisplay = document.getElementById("timer-display");
+  const timerContainer = document.querySelector(".timer-container");
+
+  timerDisplay.textContent = timeLeft;
+
+  // Remove existing classes
+  timerContainer.classList.remove("warning", "danger");
+
+  // Add warning/danger classes
+  if (timeLeft <= 10) {
+    timerContainer.classList.add("danger");
+  } else if (timeLeft <= 20) {
+    timerContainer.classList.add("warning");
+  }
 }
 
 // Select Answer
 function selectAnswer(selectedIndex) {
+  // Clear the timer
+  if (questionTimer) {
+    clearInterval(questionTimer);
+  }
+
   const question = currentQuiz.questions[currentQuestion];
   const isCorrect = selectedIndex === question.correct;
+  const isTimeout = selectedIndex === -1;
 
   if (isCorrect) {
     score++;
@@ -461,13 +606,23 @@ function selectAnswer(selectedIndex) {
     btn.disabled = true;
     if (index === question.correct) {
       btn.classList.add("correct");
-    } else if (index === selectedIndex && !isCorrect) {
+    } else if (index === selectedIndex && !isTimeout) {
       btn.classList.add("incorrect");
     }
   });
 
+  // If timeout, show the correct answer
+  if (isTimeout) {
+    setTimeout(() => {
+      buttons[question.correct].classList.add("correct");
+    }, 500);
+  }
+
   // Move to next question after a delay
   setTimeout(() => {
+    // Remove keyboard listener
+    document.removeEventListener("keydown", handleKeyPress);
+
     currentQuestion++;
     if (currentQuestion < currentQuiz.questions.length) {
       loadQuestion();
@@ -475,6 +630,26 @@ function selectAnswer(selectedIndex) {
       showResults();
     }
   }, 1500);
+}
+
+// Confetti Animation
+function createConfetti() {
+  const confettiContainer = document.createElement("div");
+  confettiContainer.className = "confetti-container";
+  document.body.appendChild(confettiContainer);
+
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDelay = Math.random() * 3 + "s";
+    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    confettiContainer.appendChild(confetti);
+  }
+
+  setTimeout(() => {
+    document.body.removeChild(confettiContainer);
+  }, 4000);
 }
 
 // Show Results
@@ -487,6 +662,7 @@ function showResults() {
 
   if (percentage >= 80) {
     message = "Excellent work! 🌟";
+    createConfetti(); // Trigger confetti for high scores
   } else if (percentage >= 60) {
     message = "Great job! 👍";
   } else if (percentage >= 40) {
@@ -498,8 +674,8 @@ function showResults() {
   document.getElementById("score-text").innerHTML = `
         <h3>${message}</h3>
         <p class="score-number">You scored <strong>${score}</strong> out of <strong>${
-    currentQuiz.questions.length
-  }</strong></p>
+          currentQuiz.questions.length
+        }</strong></p>
         <p class="percentage">${percentage.toFixed(0)}%</p>
     `;
 }
@@ -522,6 +698,38 @@ document.getElementById("restart-quiz").addEventListener("click", () => {
 document.getElementById("back-categories").addEventListener("click", () => {
   document.getElementById("quiz-container").style.display = "none";
   document.getElementById("categories").scrollIntoView({ behavior: "smooth" });
+});
+
+// Share functionality
+document.getElementById("share-twitter").addEventListener("click", () => {
+  const percentage = (score / currentQuiz.questions.length) * 100;
+  const text = `I just scored ${percentage.toFixed(0)}% on the ${currentQuiz.title} quiz! Can you beat my score? 🎯 #QuizMaster`;
+  const url = encodeURIComponent(window.location.href);
+  window.open(
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,
+    "_blank",
+  );
+});
+
+document.getElementById("share-facebook").addEventListener("click", () => {
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
+});
+
+document.getElementById("copy-link").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    const btn = document.getElementById("copy-link");
+    const originalText = btn.textContent;
+    btn.textContent = "Copied!";
+    btn.style.background = "#10b981";
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = "#6b7280";
+    }, 2000);
+  } catch (err) {
+    console.error("Failed to copy link:", err);
+  }
 });
 
 // Navbar background change on scroll
@@ -566,7 +774,7 @@ const statsObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.5 },
 );
 
 const statsSection = document.querySelector(".stats");

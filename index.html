@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -45,11 +45,14 @@
             </div>
             <h2 class="hero-title">
               <span class="title-main">Challenge Your Mind,</span>
-              <span class="title-secondary gradient-text">Expand Your Knowledge</span>
+              <span class="title-secondary gradient-text"
+                >Expand Your Knowledge</span
+              >
             </h2>
             <p class="hero-subtitle">
-              Join <strong>10,000+ learners</strong> testing their knowledge across <strong>15+ categories</strong>. 
-              Track your progress, compete with friends, and become a quiz champion!
+              Join <strong>10,000+ learners</strong> testing their knowledge
+              across <strong>15+ categories</strong>. Track your progress,
+              compete with friends, and become a quiz champion!
             </p>
             <div class="hero-buttons">
               <a href="#categories" class="btn btn-primary btn-glow">
@@ -245,6 +248,10 @@
           <div class="quiz-progress">
             <div id="progress-bar" class="progress-bar"></div>
             <p id="question-counter" class="question-counter"></p>
+            <div class="timer-container">
+              <div class="timer-icon">⏱️</div>
+              <div id="timer-display" class="timer-display">30</div>
+            </div>
           </div>
           <div id="quiz-content" class="quiz-content">
             <h3 id="question-text" class="question-text"></h3>
@@ -253,6 +260,15 @@
           <div id="quiz-result" class="quiz-result" style="display: none">
             <h2>Quiz Complete! 🎉</h2>
             <p id="score-text" class="score-text"></p>
+            <div class="share-buttons">
+              <button id="share-twitter" class="share-btn twitter">
+                Share on Twitter
+              </button>
+              <button id="share-facebook" class="share-btn facebook">
+                Share on Facebook
+              </button>
+              <button id="copy-link" class="share-btn copy">Copy Link</button>
+            </div>
             <button id="restart-quiz" class="btn btn-primary">Try Again</button>
             <button id="back-categories" class="btn btn-secondary">
               Back to Categories
@@ -270,7 +286,9 @@
               Join QuizMaster today and start your journey to becoming a trivia
               champion!
             </p>
-            <a href="#categories" class="btn btn-large btn-pulse">Start Your First Quiz 🎯</a>
+            <a href="#categories" class="btn btn-large btn-pulse"
+              >Start Your First Quiz 🎯</a
+            >
           </div>
         </div>
       </section>
